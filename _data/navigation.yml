@@ -1,13 +1,9 @@
 main:
-
   - title: "About"
     url: /about/
-
   - title: "Projects"
     url: /projects/
-
   - title: "Blog"
-    url: /blog/
-
+    url: /year-archive/
   - title: "Contact"
     url: /contact/
