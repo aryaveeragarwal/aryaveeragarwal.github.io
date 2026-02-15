@@ -1,7 +1,5 @@
 ---
-layout: page
+layout: article
 title: Projects
-permalink: /projects/
----
 
 List your projects here. 
