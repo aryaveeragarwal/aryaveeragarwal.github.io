@@ -9,16 +9,12 @@
   {% endfor %}
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".masthead__menu-item a");
-    const currentPath = window.location.pathname.replace(/\/$/, "");
-
-    links.forEach(link => {
-      const linkPath = link.getAttribute("href").replace(/\/$/, "");
-      if (linkPath === currentPath) {
-        link.classList.add("active-link");
+  document.addEventListener("DOMContentLoaded", function() {
+    const path = window.location.pathname;
+    document.querySelectorAll(".masthead__menu-item a").forEach(link => {
+      if (link.getAttribute("href") === path) {
+        link.style.borderBottom = "2px solid currentColor";
       }
     });
   });
 </script>
-{% include nav-active.html %}
