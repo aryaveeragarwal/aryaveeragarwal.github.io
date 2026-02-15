@@ -1,0 +1,23 @@
+---
+---
+
+@import "minimal-mistakes";
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* Override theme variables */
+$serif: 'Space Grotesk', sans-serif;
+$sans-serif: 'Space Grotesk', sans-serif;
+
+/* Apply */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
