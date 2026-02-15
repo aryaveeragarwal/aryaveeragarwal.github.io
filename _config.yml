@@ -23,3 +23,8 @@ header:
       url: /year-archive/
     - title: Contact
       url: /contact/
+sass:
+  style: compressed
+
+extra_css:
+  - /assets/css/custom.css
