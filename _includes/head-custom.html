@@ -1,1 +1,10 @@
-<!-- TEST INJECTION -->
+<style>
+  {% for link in site.data.navigation.main %}
+    {% if page.url == link.url %}
+      .masthead__menu-item a[href="{{ link.url }}"]::before {
+        transform: scaleX(1);
+        visibility: visible;
+      }
+    {% endif %}
+  {% endfor %}
+</style>
