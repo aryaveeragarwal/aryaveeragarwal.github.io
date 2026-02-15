@@ -36,7 +36,7 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.masthead__menu-item.active a::before {
+.masthead__menu-item.active > a::before {
   transform: scaleX(1);
   visibility: visible;
 }
