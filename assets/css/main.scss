@@ -36,7 +36,8 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-/* Active nav underline (independent of theme animation) */
-.masthead__menu-item a {
-  position: relative;
+/* Active nav underline */
+.masthead__menu-item a.active-nav {
+  border-bottom: 2px solid currentColor !important;
+  padding-bottom: 2px;
 }
