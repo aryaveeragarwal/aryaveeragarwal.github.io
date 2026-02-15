@@ -10,19 +10,7 @@ url: "https://aryaveeragarwal.github.io"
 # Darkskin
 minimal_mistakes_skin: "dark"
 
-# Navigation
-header:
-  nav:
-    - title: Home
-      url: /
-    - title: About
-      url: /about/
-    - title: Projects
-      url: /projects/
-    - title: Blog
-      url: /year-archive/
-    - title: Contact
-      url: /contact/
+
 sass:
   style: compressed
 
