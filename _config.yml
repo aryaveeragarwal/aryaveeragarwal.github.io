@@ -8,7 +8,7 @@ plugins:
 url: "https://aryaveeragarwal.github.io"
 
 # Auto skin
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "auto"
 
 # Navigation
 header:
