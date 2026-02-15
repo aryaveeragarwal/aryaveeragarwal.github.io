@@ -5,21 +5,4 @@ remote_theme: kitian616/jekyll-TeXt-theme
 plugins:
   - jekyll-remote-theme
 
-url: "https://aryaveeragarwal.github.io"
-
-# Dark mode default
 text_skin: dark
-
-# Navigation
-header:
-  nav:
-    - title: Home
-      url: /
-    - title: About
-      url: /about/
-    - title: Projects
-      url: /projects/
-    - title: Blog
-      url: /archive/
-    - title: Contact
-      url: /contact/
