@@ -1,8 +1,27 @@
 title: Aryaveer Agarwal
 description: Robotics, systems design, and engineering logs
 
-remote_theme: kitian616/jekyll-TeXt-theme
-plugins:
-  - jekyll-remote-theme
+theme: minima
 
-text_skin: dark
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+plugins:
+  - jekyll-include-cache
+
+url: "https://aryaveeragarwal.github.io"
+
+# Dark skin
+minimal_mistakes_skin: "dark"
+
+# Navigation
+header:
+  nav:
+    - title: Home
+      url: /
+    - title: About
+      url: /about/
+    - title: Projects
+      url: /projects/
+    - title: Blog
+      url: /year-archive/
+    - title: Contact
+      url: /contact/
