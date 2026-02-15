@@ -1,12 +1,22 @@
 <script>
-window.addEventListener("load", function() {
+function activateNav() {
   const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".masthead__menu-item a");
 
   links.forEach(link => {
     if (link.getAttribute("href") === currentPath) {
       link.classList.add("active-nav");
+      console.log("Active nav set:", currentPath);
     }
   });
+}
+
+const observer = new MutationObserver(() => {
+  if (document.querySelector(".masthead__menu-item a")) {
+    activateNav();
+    observer.disconnect();
+  }
 });
+
+observer.observe(document.body, { childList: true, subtree: true });
 </script>
