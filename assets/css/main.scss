@@ -2,7 +2,6 @@
 ---
 
 @import "minimal-mistakes";
-$skin: "dark";
 
 /* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
@@ -22,3 +21,16 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+html {
+  background-color: #121212;
+}
+
+body {
+  background-color: #121212;
+  color: #e6e6e6;
+}
+
+.page__content,
+.archive__item,
+.masthead
