@@ -5,17 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   links.forEach(link => {
     const linkPath = link.getAttribute("href").replace(/\/$/, "");
-
     if (linkPath === currentPath) {
-      link.style.position = "relative";
-
-      const style = document.createElement("style");
-      style.innerHTML = `
-        .masthead__menu-item a[href="${link.getAttribute("href")}"]::before {
-          transform: scaleX(1) !important;
-        }
-      `;
-      document.head.appendChild(style);
+      link.style.textDecoration = "underline";
+      link.style.textUnderlineOffset = "4px";
     }
   });
 });
