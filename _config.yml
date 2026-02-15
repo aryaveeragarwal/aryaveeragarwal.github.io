@@ -4,21 +4,15 @@ description: Robotics, systems design, and engineering logs
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-include-cache
-nav: main
+
 url: "https://aryaveeragarwal.github.io"
 
-# Darkskin
 minimal_mistakes_skin: "dark"
 
+nav: main
 
 sass:
   style: compressed
 
 extra_css:
   - /assets/css/custom.css
-
-defaults:
-  - scope:
-      path: ""
-    values:
-
