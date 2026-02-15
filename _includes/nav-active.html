@@ -1,0 +1,13 @@
+ {% assign current = page.url | remove: "index.html" %}
+
+{% for link in site.data.navigation.main %}
+  {% assign link_url = link.url | remove: "index.html" %}
+  {% if current == link_url %}
+    <style>
+      .masthead__menu-item a[href="{{ link.url }}"]::before {
+        transform: scaleX(1);
+        visibility: visible;
+      }
+    </style>
+  {% endif %}
+{% endfor %}
