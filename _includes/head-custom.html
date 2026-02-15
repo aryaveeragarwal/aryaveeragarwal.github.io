@@ -1,20 +1,22 @@
-<style>
-  {% for link in site.data.navigation.main %}
-    {% if page.url == link.url %}
-      .masthead__menu-item a[href="{{ link.url }}"]::before {
-        transform: scaleX(1);
-        visibility: visible;
-      }
-    {% endif %}
-  {% endfor %}
-</style>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const path = window.location.pathname;
-    document.querySelectorAll(".masthead__menu-item a").forEach(link => {
-      if (link.getAttribute("href") === path) {
-        link.style.borderBottom = "2px solid currentColor";
-      }
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const links = document.querySelectorAll(".masthead__menu-item a");
+
+  links.forEach(link => {
+    const linkPath = link.getAttribute("href").replace(/\/$/, "");
+
+    if (linkPath === currentPath) {
+      link.style.position = "relative";
+
+      const style = document.createElement("style");
+      style.innerHTML = `
+        .masthead__menu-item a[href="${link.getAttribute("href")}"]::before {
+          transform: scaleX(1) !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
   });
+});
 </script>
