@@ -1,8 +1,6 @@
 title: Aryaveer Agarwal
 description: Robotics, systems design, and engineering logs
 
-theme: minima
-
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-include-cache
