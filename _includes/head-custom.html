@@ -8,3 +8,16 @@
     {% endif %}
   {% endfor %}
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".masthead__menu-item a");
+    const currentPath = window.location.pathname.replace(/\/$/, "");
+
+    links.forEach(link => {
+      const linkPath = link.getAttribute("href").replace(/\/$/, "");
+      if (linkPath === currentPath) {
+        link.classList.add("active-link");
+      }
+    });
+  });
+</script>
