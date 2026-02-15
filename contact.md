@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: article
 title: Contact
-permalink: /contact/
 ---
 
 Email: aryaveer.agarwal1710@gmail.com
