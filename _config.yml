@@ -17,4 +17,8 @@ sass:
 extra_css:
   - /assets/css/custom.css
 
-  
+defaults:
+  - scope:
+      path: ""
+    values:
+      nav: main
