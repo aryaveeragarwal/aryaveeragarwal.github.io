@@ -1,6 +1,5 @@
 ---
 layout: home
-title: Aryaveer Agarwal
 ---
 
 Welcome to my personal site.  
