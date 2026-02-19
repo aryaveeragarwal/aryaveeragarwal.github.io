@@ -27,3 +27,16 @@ I focus on:
   });
 })();
 </script>
+<script>
+(function() {
+  const current = window.location.pathname.replace(/\/$/, "");
+  const links = document.querySelectorAll(".masthead__menu-item a");
+
+  links.forEach(link => {
+    const linkPath = new URL(link.href).pathname.replace(/\/$/, "");
+    if (linkPath === current) {
+      link.classList.add("active-nav");
+    }
+  });
+})();
+</script>
