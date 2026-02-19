@@ -27,6 +27,3 @@ I focus on:
   });
 })();
 </script>
-<script>
-alert("script running");
-</script>
