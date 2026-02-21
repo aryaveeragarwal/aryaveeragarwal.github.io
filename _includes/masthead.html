@@ -14,23 +14,15 @@
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
         </a>
         <ul class="visible-links">
+          <!-- DEBUG CURRENT: {{ page.url }} -->
+
           {%- for link in site.data.navigation.main -%}
-            {%- assign current = page.url | replace: '/index.html', '/' -%}
-            {%- assign link_url = link.url | relative_url -%}
-
-            {%- if current == link_url -%}
-              <li class="masthead__menu-item is-active">
-            {%- else -%}
-              <li class="masthead__menu-item">
-            {%- endif -%}
-
-                <a
-                  href="{{ link.url | relative_url }}"
-                  {% if link.description %} title="{{ link.description }}"{% endif %}
-                  {% if link.target %} target="{{ link.target }}"{% endif %}
-                >{{ link.title }}</a>
-              </li>
-
+            <!-- DEBUG LINK: {{ link.url | relative_url }} -->
+            <li class="masthead__menu-item">
+              <a href="{{ link.url | relative_url }}">
+                {{ link.title }}
+            </a>
+           </li>
           {%- endfor -%}
         </ul>
         {% if site.search == true %}
