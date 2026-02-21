@@ -28,20 +28,17 @@ I focus on:
 })();
 </script>
 <script>
-function activateNav() {
-  const current = window.location.pathname.replace(/\/$/, "");
+(function() {
+  const current = window.location.pathname.split("/").filter(Boolean).pop() || "home";
+
   const links = document.querySelectorAll(".masthead__menu-item a");
 
   links.forEach(link => {
-    const linkPath = new URL(link.href).pathname.replace(/\/$/, "");
-    link.classList.remove("active-nav");
-    if (linkPath === current) {
+    const linkSegment = link.pathname.split("/").filter(Boolean).pop() || "home";
+
+    if (linkSegment === current) {
       link.classList.add("active-nav");
     }
   });
-}
-
-document.addEventListener("DOMContentLoaded", activateNav);
-window.addEventListener("popstate", activateNav);
-document.addEventListener("pjax:end", activateNav);
+})();
 </script>
