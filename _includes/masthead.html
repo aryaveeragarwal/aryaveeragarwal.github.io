@@ -7,47 +7,74 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+          <a class="site-logo" href="{{ '/' | relative_url }}">
+            <img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}">
+          </a>
         {% endunless %}
+
         <a class="site-title" href="{{ '/' | relative_url }}">
           {{ site.masthead_title | default: site.title | escape_once | strip }}
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
+          {% if site.subtitle %}
+            <span class="site-subtitle">
+              {{ site.subtitle | escape_once | strip }}
+            </span>
+          {% endif %}
         </a>
+
         <ul class="visible-links">
-          <!-- DEBUG CURRENT: {{ page.url }} -->
 
-          {%- for link in site.data.navigation.main -%}
-            {%- assign current = page.url -%}
-            {%- assign link_url = link.url | relative_url -%}
+          {% assign current = page.url | replace: '/index.html','/' %}
 
-            {%- assign active = false -%}
+          {% for link in site.data.navigation.main %}
+            {% assign link_url = link.url | relative_url %}
+            {% assign active = false %}
 
-            {%- if current == link_url -%}
-              {%- assign active = true -%}
-            {%- endif -%}
+            {%- comment -%}
+              Exact match for regular pages
+            {%- endcomment -%}
+            {% if current == link_url %}
+              {% assign active = true %}
+            {% endif %}
 
-            {%- if page.layout == "single" and link_url == "/blog/" -%}
-              {%- assign active = true -%}
-            {%- endif -%}
+            {%- comment -%}
+              If this is a blog post, activate Blog
+            {%- endcomment -%}
+            {% if page.collection == "posts" and link_url == "/blog/" %}
+              {% assign active = true %}
+            {% endif %}
 
-  <li class="masthead__menu-item {% if active %}is-active{% endif %}">
-    <a href="{{ link_url }}">
-      {{ link.title }}
-    </a>
-  </li>
-{%- endfor -%}
+            <li class="masthead__menu-item{% if active %} is-active{% endif %}">
+              <a
+                href="{{ link_url }}"
+                {% if link.description %} title="{{ link.description }}"{% endif %}
+                {% if link.target %} target="{{ link.target }}"{% endif %}
+              >
+                {{ link.title }}
+              </a>
+            </li>
+
+          {% endfor %}
+
         </ul>
+
         {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
-        </button>
+          <button class="search__toggle" type="button">
+            <span class="visually-hidden">
+              {{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}
+            </span>
+            <i class="fas fa-search"></i>
+          </button>
         {% endif %}
+
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <span class="visually-hidden">
+            {{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}
+          </span>
           <div class="navicon"></div>
         </button>
+
         <ul class="hidden-links hidden"></ul>
+
       </nav>
     </div>
   </div>
