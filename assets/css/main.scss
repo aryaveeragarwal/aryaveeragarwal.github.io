@@ -36,7 +36,7 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.masthead__menu-item a.active-nav {
+.masthead__menu-item.is-active > a {
   border-bottom: 3px solid #4fd1c5;
   padding-bottom: 4px;
 }
