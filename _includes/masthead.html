@@ -17,13 +17,25 @@
           <!-- DEBUG CURRENT: {{ page.url }} -->
 
           {%- for link in site.data.navigation.main -%}
-            <!-- DEBUG LINK: {{ link.url | relative_url }} -->
-            <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}">
-                {{ link.title }}
-            </a>
-           </li>
-          {%- endfor -%}
+            {%- assign current = page.url -%}
+            {%- assign link_url = link.url | relative_url -%}
+
+            {%- assign active = false -%}
+
+            {%- if current == link_url -%}
+              {%- assign active = true -%}
+            {%- endif -%}
+
+            {%- if page.layout == "single" and link_url == "/blog/" -%}
+              {%- assign active = true -%}
+            {%- endif -%}
+
+  <li class="masthead__menu-item {% if active %}is-active{% endif %}">
+    <a href="{{ link_url }}">
+      {{ link.title }}
+    </a>
+  </li>
+{%- endfor -%}
         </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
