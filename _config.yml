@@ -9,8 +9,6 @@ url: "https://aryaveeragarwal.github.io"
 
 minimal_mistakes_skin: "dark"
 
-nav: main
-
 sass:
   style: compressed
 
