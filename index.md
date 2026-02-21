@@ -27,18 +27,3 @@ I focus on:
   });
 })();
 </script>
-<script>
-(function() {
-  const current = window.location.pathname.split("/").filter(Boolean).pop() || "home";
-
-  const links = document.querySelectorAll(".masthead__menu-item a");
-
-  links.forEach(link => {
-    const linkSegment = link.pathname.split("/").filter(Boolean).pop() || "home";
-
-    if (linkSegment === current) {
-      link.classList.add("active-nav");
-    }
-  });
-})();
-</script>
