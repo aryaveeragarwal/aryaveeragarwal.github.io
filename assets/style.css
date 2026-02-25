@@ -78,17 +78,20 @@ nav a.active {
   color: var(--text);
 }
 
-nav a.active::after {
+nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 3px;
-  background: #FFFFFF;
-  border-radius: 3px;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--text);
+  transition: width 0.25s ease;
 }
 
+nav a:hover::after {
+  width: 100%;
+}
 /* Headings */
 h1 {
   font-family: "Fraunces", serif;
