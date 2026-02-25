@@ -60,20 +60,38 @@ body {
   text-decoration: none;
   color: var(--text);
 }
-
-/* Nav */
+/* Base link style */
 nav a {
-  margin-left: 1.8rem;
+  position: relative;
   text-decoration: none;
   color: var(--muted);
   font-weight: 500;
-  position: relative;
+  margin-left: 1.8rem;
+  padding-bottom: 6px;
 }
 
+/* Underline element */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+/* Hover expands */
 nav a:hover {
   color: var(--text);
 }
 
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE PAGE — permanently expanded */
 nav a.active {
   color: var(--text);
 }
