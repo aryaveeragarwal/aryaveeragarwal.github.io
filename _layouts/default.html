@@ -18,6 +18,11 @@
       <a href="/blog/" {% if page.url contains "/blog" %}class="active"{% endif %}>Blog</a>
       <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
     </nav>
+    <div style="margin-left:2rem;">
+  <button onclick="setTheme('light')">Light</button>
+  <button onclick="setTheme('dark')">Dark</button>
+  <button onclick="setTheme('system')">System</button>
+  </div>
   </div>
 </header>
 
