@@ -14,16 +14,3 @@ I focus on:
 ### [{{ post.title }}]({{ post.url }})
 {{ post.excerpt }}
 {% endfor %}
-<script>
-(function() {
-  const current = window.location.pathname.replace(/\/$/, "");
-  const links = document.querySelectorAll(".masthead__menu-item a");
-
-  links.forEach(link => {
-    const href = link.getAttribute("href").replace(/\/$/, "");
-    if (href === current) {
-      link.classList.add("active-nav");
-    }
-  });
-})();
-</script>
