@@ -7,7 +7,7 @@ plugins:
   - jekyll-include-cache
 
 url: "https://aryaveeragarwal.github.io"
-
+text_skin: default
 sass:
   style: compressed
 
