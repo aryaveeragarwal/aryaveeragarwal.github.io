@@ -6,11 +6,5 @@ plugins:
   - jekyll-include-cache
 
 url: "https://aryaveeragarwal.github.io"
-
-minimal_mistakes_skin: "dark"
-
 sass:
   style: compressed
-
-extra_css:
-  - /assets/css/custom.css
