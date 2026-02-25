@@ -1,0 +1,10 @@
+
+title: Aryaveer Agarwal
+description: Robotics, systems design, and engineering logs
+url: ""
+
+markdown: kramdown
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-feed

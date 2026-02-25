@@ -1,0 +1,46 @@
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f3ef;
+  color: #2d2d2d;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e2dc;
+}
+
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: #2d2d2d;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #555;
+  position: relative;
+}
+
+nav a.active {
+  border-bottom: 3px solid #4a7c59;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid #e6e2dc;
+  color: #777;
+}
