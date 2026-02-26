@@ -74,15 +74,16 @@ nav a {
 nav a::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: 0;
   height: 2px;
   width: 0;
   background: currentColor;
+  transform: translateX(-50%);
   transition: width 0.25s ease;
 }
 
-/* Hover expands */
+/* Hover expands from center */
 nav a:hover {
   color: var(--text);
 }
