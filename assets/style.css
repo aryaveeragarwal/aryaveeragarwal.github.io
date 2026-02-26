@@ -159,17 +159,16 @@ h3 {
 /* =======================================================
    LINKS
 ======================================================= */
-
+/* Default links inherit text color */
 a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
 }
 
-/* Only content links underline */
+/* Content links underline on hover */
 main a:hover {
   text-decoration: underline;
 }
-
 /* =======================================================
    FOOTER
 ======================================================= */
