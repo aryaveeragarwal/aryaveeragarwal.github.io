@@ -159,9 +159,8 @@ h3 {
 /* =======================================================
    LINKS
 ======================================================= */
-/* Default links inherit text color */
 a {
-  color: inherit;
+  color: var(--accent);
   text-decoration: none;
 }
 
