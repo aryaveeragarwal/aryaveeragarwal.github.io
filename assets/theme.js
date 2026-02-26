@@ -30,3 +30,8 @@ function updateFavicon(theme) {
     favicon.href = "/favicon-light.svg";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  updateFavicon(savedTheme);
+});
