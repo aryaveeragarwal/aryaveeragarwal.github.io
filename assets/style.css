@@ -204,7 +204,7 @@ main {
 }
 
 .theme-switch input:checked + .slider {
-  background-color: var(--accent);
+  background-color: var(--text);
 }
 
 .theme-switch input:checked + .slider::before {
