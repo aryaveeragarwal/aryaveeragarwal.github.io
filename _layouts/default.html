@@ -21,7 +21,10 @@
         <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
       </nav>
 
-      <button class="theme-toggle" onclick="toggleTheme()">☾</button>
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
     </div>
   </header>
 
