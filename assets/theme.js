@@ -18,3 +18,13 @@ toggle.addEventListener("change", () => {
     localStorage.setItem("theme", "light");
   }
 });
+function updateFavicon(theme) {
+  const favicon = document.getElementById("favicon");
+  if (!favicon) return;
+
+  if (theme === "dark") {
+    favicon.href = "/favicon-dark.svg";
+  } else {
+    favicon.href = "/favicon-light.svg";
+  }
+}
