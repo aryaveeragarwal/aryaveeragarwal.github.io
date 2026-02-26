@@ -13,9 +13,11 @@ toggle.addEventListener("change", () => {
   if (toggle.checked) {
     root.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
+    updateFavicon("dark");
   } else {
     root.setAttribute("data-theme", "light");
     localStorage.setItem("theme", "light");
+    updateFavicon("light");
   }
 });
 function updateFavicon(theme) {
