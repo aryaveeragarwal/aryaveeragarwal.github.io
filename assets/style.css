@@ -121,8 +121,8 @@ a {
   color: var(--accent);
   text-decoration: none;
 }
-
-a:hover {
+/* Only content links underline normally */
+main a:hover {
   text-decoration: underline;
 }
 
