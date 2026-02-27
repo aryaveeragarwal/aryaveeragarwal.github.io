@@ -1,40 +1,46 @@
-const root = document.documentElement;
-const toggle = document.getElementById("themeToggle");
+/* ===============================
+   THEME MANAGEMENT (deterministic)
+   - Single initialization on DOMContentLoaded
+   - Syncs checkbox, data-theme, localStorage, and favicon
+   - Keeps behavior identical to previous implementation
+================================ */
 
-// Apply saved theme
-const saved = localStorage.getItem("theme");
-if (saved === "dark") {
-  root.setAttribute("data-theme", "dark");
-  toggle.checked = true;
-}
-
-// Toggle handler
-toggle.addEventListener("change", () => {
-  if (toggle.checked) {
-    root.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-    updateFavicon("dark");
-  } else {
-    root.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-    updateFavicon("light");
-  }
-});
-function updateFavicon(theme) {
-  const favicon = document.getElementById("favicon");
-  if (!favicon) return;
-
-  if (theme === "dark") {
-    favicon.href = "/favicon-dark.svg";
-  } else {
-    favicon.href = "/favicon-light.svg";
-  }
-}
 document.addEventListener("DOMContentLoaded", () => {
+
+  const root = document.documentElement;
+  const toggle = document.getElementById("theme-checkbox");
+  const favicon = document.getElementById("favicon");
+
+  // If toggle not present (unlikely), still apply saved theme
   const savedTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", savedTheme);
-  updateFavicon(savedTheme);
+  root.setAttribute("data-theme", savedTheme);
+  if (toggle) toggle.checked = savedTheme === "dark";
+  if (favicon) updateFavicon(savedTheme);
+
+  // Toggle handler (if toggle exists)
+  if (toggle) {
+    toggle.addEventListener("change", () => {
+      const newTheme = toggle.checked ? "dark" : "light";
+      root.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      updateFavicon(newTheme);
+    });
+  }
+
+  // Helper: update favicon href to match theme
+  function updateFavicon(theme) {
+    if (!favicon) return;
+    favicon.href = theme === "dark" ? "/favicon-dark.svg" : "/favicon-light.svg";
+  }
+
 });
+
+/* ===============================
+   MOBILE MENU
+   - Minimal, idempotent function for the hamburger toggle
+================================ */
+
 function toggleMenu() {
-  document.querySelector(".nav-links").classList.toggle("open");
-}  
+  const nav = document.querySelector(".nav-links");
+  if (nav) nav.classList.toggle("open");
+}

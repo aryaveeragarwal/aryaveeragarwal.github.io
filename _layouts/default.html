@@ -1,18 +1,48 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap">
+
+  <!-- BASIC META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 | default: site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css">
-  <script src="/assets/theme.js" defer></script>
+
+  <!-- Favicon -->
   <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg">
+
+  <!-- Theme Script -->
+  <script src="/assets/theme.js" defer></script>
+
+</head>
 
 <body>
 
   <header class="site-header">
     <div class="container">
+
       <a href="/" class="logo">{{ site.title }}</a>
 
       <nav class="nav">
+
         <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -25,30 +55,31 @@
           <a href="/blog/" {% if page.url contains "/blog" %}class="active"{% endif %}>Blog</a>
           <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
         </div>
+
       </nav>
 
-      <label class="theme-switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider">
-          <span class="icon moon">☾</span>
-          <span class="icon sun">☀</span>
-        </span>
-      </label>
+      <div class="theme-container">
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-checkbox">
+          <span class="slider">
+            <span class="icon sun">☀</span>
+            <span class="icon moon">☾</span>
+          </span>
+        </label>
+      </div>
+
     </div>
   </header>
 
-  <div class="page-wrapper">
-    <main class="container">
-      {{ content }}
-    </main>
+  <main class="container">
+    {{ content }}
+  </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        Built deliberately. Updated frequently.<br>
-        © {{ site.time | date: "%Y" }} {{ site.title }}
-      </div>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div class="container">
+      © {{ site.time | date: "%Y" }} {{ site.title }} · Built with Jekyll
+    </div>
+  </footer>
 
 </body>
 </html>
