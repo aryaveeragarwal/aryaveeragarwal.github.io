@@ -436,3 +436,70 @@ main a:hover {
   }
 
 }
+/* ===============================
+   NAVIGATION
+================================ */
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+}
+
+/* Hamburger hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  transition: 0.2s ease;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    right: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  nav a {
+    margin-left: 0;
+  }
+}
