@@ -35,3 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.documentElement.setAttribute("data-theme", savedTheme);
   updateFavicon(savedTheme);
 });
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("open");
+}  
