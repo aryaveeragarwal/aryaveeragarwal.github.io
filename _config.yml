@@ -1,14 +1,10 @@
+
 title: Aryaveer Agarwal
 description: Robotics, systems design, and engineering logs
-
-url: "https://aryaveeragarwal.com"
+url: ""
 
 markdown: kramdown
-permalink: /blog/:title/
-
-timezone: Asia/Kolkata
-future: false
-strict_front_matter: true
+permalink: /:categories/:title/
 
 plugins:
   - jekyll-feed

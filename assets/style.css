@@ -48,7 +48,6 @@ body {
 
 /* =======================================================
    LAYOUT STRUCTURE
-   - Controls max width and page wrapper behavior
 ======================================================= */
 
 .container {
@@ -70,7 +69,6 @@ main {
 
 /* =======================================================
    HEADER
-   - Sticky header with balanced padding
 ======================================================= */
 
 .site-header {
@@ -99,8 +97,6 @@ main {
 
 /* =======================================================
    NAVIGATION
-   - Subtle thin underline animation
-   - Active state matches hover underline
 ======================================================= */
 
 nav a {
@@ -109,7 +105,7 @@ nav a {
   color: var(--muted);
   font-weight: 500;
   margin-left: 1.8rem;
-  padding-bottom: 1px;
+  padding-bottom: 0px;
 }
 
 /* Thin underline animation */
@@ -120,7 +116,7 @@ nav a::after {
   bottom: 0;
   height: 1px;
   width: 0;
-  background: currentColor; /* change to var(--accent) if you want accent underline */
+  background: var(--accent);
   transform: translateX(-50%);
   transition: width 0.25s ease;
 }
@@ -134,7 +130,7 @@ nav a:hover::after {
 }
 
 nav a.active {
-  color: var(--text);
+  color: var(--teext);
 }
 
 nav a.active::after {
@@ -162,22 +158,18 @@ h3 {
 
 /* =======================================================
    LINKS
-   - Global link style uses accent, content links underline on hover
 ======================================================= */
-
 a {
   color: var(--accent);
   text-decoration: none;
 }
 
-/* Only content links underline */
+/* Content links underline on hover */
 main a:hover {
   text-decoration: underline;
 }
-
 /* =======================================================
    FOOTER
-   - Reduced vertical footprint for a subtle footer
 ======================================================= */
 
 .site-footer {
@@ -192,7 +184,6 @@ main a:hover {
 
 /* =======================================================
    THEME TOGGLE (Sun / Moon Switch)
-   - Subtle, accessible, and consistent with the design system
 ======================================================= */
 
 .theme-switch {
@@ -271,9 +262,16 @@ main a:hover {
 }
 
 /* =======================================================
-   RECENT POSTS (index)
-   - Structured list with subtle elevation on hover
+   ANIMATIONS
 ======================================================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===============================
+   RECENT POSTS SECTION
+================================ */
 
 .post-list {
   display: flex;
@@ -318,11 +316,9 @@ main a:hover {
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
-/* =======================================================
-   BLOG ARCHIVE (blog page)
-   - Year headings and aligned date / title rows
-======================================================= */
+/* ===============================
+   BLOG ARCHIVE
+================================ */
 
 .blog-archive {
   margin-top: 2rem;
@@ -377,18 +373,18 @@ main a:hover {
 .archive-title:hover::after {
   width: 100%;
 }
-
-/* =======================================================
-   RESPONSIVE (mobile)
-   - Stack header, wrap nav, reduce padding and font sizes
-======================================================= */
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
 
 @media (max-width: 768px) {
 
+  /* Reduce global padding */
   .container {
     padding: 2rem 1.2rem;
   }
 
+  /* Header layout stack */
   .site-header .container {
     flex-direction: column;
     align-items: flex-start;
@@ -406,6 +402,7 @@ main a:hover {
     font-size: 0.95rem;
   }
 
+  /* Reduce heading sizes */
   h1 {
     font-size: 2rem;
   }
@@ -414,6 +411,7 @@ main a:hover {
     font-size: 1.3rem;
   }
 
+  /* Recent post cards smaller padding */
   .post-item {
     padding: 1.2rem;
   }
@@ -422,6 +420,7 @@ main a:hover {
     font-size: 1.1rem;
   }
 
+  /* Archive layout stack */
   .archive-item {
     flex-direction: column;
     gap: 0.3rem;
@@ -431,11 +430,48 @@ main a:hover {
     width: auto;
   }
 
+  /* Footer spacing smaller */
   .site-footer {
     font-size: 0.8rem;
   }
 
-  /* Mobile nav: hamburger behavior */
+}
+/* ===============================
+   NAVIGATION
+================================ */
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+}
+
+/* Hamburger hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  transition: 0.2s ease;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
   .nav {
     width: 100%;
     justify-content: space-between;
