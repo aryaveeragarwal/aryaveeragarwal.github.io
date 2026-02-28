@@ -8,3 +8,7 @@ permalink: /:categories/:title/
 
 plugins:
   - jekyll-feed
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
