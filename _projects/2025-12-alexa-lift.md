@@ -3,6 +3,7 @@ layout: project
 title: Alexa-Based Lift
 date: 2025-12-15
 slug: alexa-lift
+description: Voice-controlled embedded actuation system integrating cloud triggers, relay-based motor control, and safety interlocks.
 ---
 
 ## Overview
