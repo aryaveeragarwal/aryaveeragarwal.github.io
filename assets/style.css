@@ -113,7 +113,7 @@ nav a::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -1px;
+  bottom: -3px;
   height: 1px;
   width: 0;
   background: var(--accent);
