@@ -3,6 +3,7 @@ layout: project
 title: Hydroponics System
 date: 2025-10-20
 slug: hydroponics
+description: Controlled hydroponic growth experiment exploring nutrient optimization, environmental variables, and system efficiency.
 ---
 
 ## Overview
