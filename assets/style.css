@@ -555,3 +555,54 @@ main a:hover {
     margin-bottom: 2rem;
   }
 }
+/* =============================
+   PROJECT ARCHIVE
+============================= */
+
+.project-archive {
+  margin-top: 3rem;
+}
+
+.archive-year {
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.archive-item {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+.archive-date {
+  width: 90px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.archive-content {
+  max-width: 700px;
+}
+
+.archive-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.archive-title:hover {
+  text-decoration: underline;
+}
+
+.archive-description {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
