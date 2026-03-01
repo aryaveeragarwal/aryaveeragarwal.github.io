@@ -13,8 +13,13 @@ layout: default
       {% if links %}
       <ul>
         {% for item in links %}
+          {% assign current = page.url | remove: 'index.html' %}
+          {% assign link_url = item.url | relative_url %}
           <li>
-            <a href="{{ item.url }}">{{ item.title }}</a>
+            <a href="{{ link_url }}"
+               class="{% if current == link_url %}active{% endif %}">
+              {{ item.title }}
+            </a>
           </li>
         {% endfor %}
       </ul>
