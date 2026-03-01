@@ -606,3 +606,9 @@ main a:hover {
   color: var(--muted);
   line-height: 1.6;
 }
+/* ===== Fix double underline in blog + projects ===== */
+.archive-title:hover,
+.project-item:hover,
+.blog-title:hover {
+  text-decoration: none !important;
+}
