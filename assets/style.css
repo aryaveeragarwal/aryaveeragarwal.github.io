@@ -556,6 +556,22 @@ main a:hover {
     margin-bottom: 2rem;
   }
 }
+/* Active project sidebar link */
+.project-sidebar a.active {
+  color: var(--text);
+  font-weight: 600;
+  position: relative;
+}
+
+.project-sidebar a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+}
 /* =============================
    PROJECT ARCHIVE
 ============================= */
