@@ -2,6 +2,7 @@
 title: Software
 layout: project
 sidebar: alexa-lift
+project_title: Alexa-Based Lift Mechanism
 ---
 
 ## Overview
