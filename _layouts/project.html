@@ -6,7 +6,10 @@ layout: default
 
   <aside class="project-sidebar">
     <div class="sidebar-inner">
-      <h3>{{ page.title }}</h3>
+      <h3>
+        {% assign project_root = site.projects | where: "sidebar", page.sidebar | where: "title", "Alexa-Based Lift Mechanism" | first %}
+        Alexa-Based Lift Mechanism
+      </h3>
 
       {% assign links = site.data.sidebars[page.sidebar] %}
 
