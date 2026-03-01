@@ -2,6 +2,7 @@
 title: Iterations
 layout: project
 sidebar: alexa-lift
+project_title: Alexa-Based Lift Mechanism
 ---
 
 ## Version 1 — Proof of Concept
