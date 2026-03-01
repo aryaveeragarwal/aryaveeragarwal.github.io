@@ -537,6 +537,7 @@ main a:hover {
   font-size: 0.9rem;
   color: var(--muted);
   text-decoration: none;
+  position: relative;
 }
 
 .project-sidebar a:hover {
