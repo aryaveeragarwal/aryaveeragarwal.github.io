@@ -510,18 +510,17 @@ main a:hover {
 
 .project-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 240px 1fr;
   gap: 3rem;
   margin-top: 2rem;
-  min-height: 70vh;
-  align-items: start; /* prevent grid auto-centering */
+  width: 100%;
 }
 
 .project-sidebar {
+  width: 240px;
   position: sticky;
   top: 120px;
   align-self: start;
-  height: fit-content;
 }
 
 .project-sidebar ul {
@@ -545,7 +544,6 @@ main a:hover {
 
 .project-content {
   min-width: 0;
-  max-width: 100%;
   width: 100%;
 }
 
