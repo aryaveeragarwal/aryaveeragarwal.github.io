@@ -5,7 +5,7 @@ permalink: /projects/
 ---
 
 ## Engineering Documentation
-{% assign sorted = site.projects | sort: "date" | reverse %}
+{% assign sorted = site.projects | where: "is_project_home", true | sort: "date" | reverse %}
 
 <div class="project-archive">
 
