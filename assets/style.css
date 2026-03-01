@@ -514,6 +514,7 @@ main a:hover {
   gap: 3rem;
   margin-top: 2rem;
   min-height: 70vh;
+  align-items: start; /* prevent grid auto-centering */
 }
 
 .project-sidebar {
