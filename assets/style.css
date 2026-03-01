@@ -513,7 +513,7 @@ main a:hover {
   grid-template-columns: 220px 1fr;
   gap: 3rem;
   margin-top: 2rem;
-  min-height: 70vh;
+  min-height: 60vh;
 }
 
 .project-sidebar {
@@ -543,6 +543,7 @@ main a:hover {
 
 .project-content {
   min-width: 0;
+   width: 100%
 }
 
 /* Mobile */
