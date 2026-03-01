@@ -26,5 +26,5 @@ I wanted to experiment with:
 
 ## Status
 
-Functional prototype complete.  
-Future versions will focus on safety logic and response optimization.
+Functional prototype complete.
+Future versions will focus on safety logic and Wi-Fi range.
