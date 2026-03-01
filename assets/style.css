@@ -159,7 +159,7 @@ h3 {
 }
 
 /* =======================================================
-   LINKS (Controlled Underline System)
+   LINKS
 ======================================================= */
 
 a {
@@ -167,12 +167,15 @@ a {
   text-decoration: none;
 }
 
-/* Content links only */
-main a:not(.archive-title):not(.project-sidebar a) {
+/* ---------- Content links (paragraph links only) ---------- */
+
+main p a,
+main li a {
   position: relative;
 }
 
-main a:not(.archive-title):not(.project-sidebar a)::after {
+main p a::after,
+main li a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -183,7 +186,8 @@ main a:not(.archive-title):not(.project-sidebar a)::after {
   transition: width 0.2s ease;
 }
 
-main a:not(.archive-title):not(.project-sidebar a):hover::after {
+main p a:hover::after,
+main li a:hover::after {
   width: 100%;
 }
 /* =======================================================
