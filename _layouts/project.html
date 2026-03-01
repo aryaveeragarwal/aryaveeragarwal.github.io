@@ -8,12 +8,18 @@ layout: default
     <div class="sidebar-inner">
       <h3>{{ page.title }}</h3>
 
+      {% assign links = site.data.sidebars[page.sidebar] %}
+
+      {% if links %}
       <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#system-architecture">System Architecture</a></li>
-        <li><a href="#iteration-log">Iteration Log</a></li>
-        <li><a href="#lessons-learned">Lessons</a></li>
+        {% for item in links %}
+          <li>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
       </ul>
+      {% endif %}
+      
     </div>
   </aside>
 
