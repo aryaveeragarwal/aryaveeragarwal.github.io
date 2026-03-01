@@ -7,7 +7,7 @@ project_title: Alexa-Based Lift Mechanism
 
 ## Version 1 — Proof of Concept
 
-- Simple relay switching                                                          
+- Simple relay switching
 - Fixed motor runtime
 - No safety logic
 
