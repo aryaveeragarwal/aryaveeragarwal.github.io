@@ -2,6 +2,7 @@
 title: Alexa-Based Lift Mechanism
 layout: project
 sidebar: alexa-lift
+is_project_home: true
 ---
 
 ## Overview
