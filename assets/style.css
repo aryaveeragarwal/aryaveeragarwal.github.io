@@ -159,16 +159,32 @@ h3 {
 }
 
 /* =======================================================
-   LINKS
+   LINKS (Controlled Underline System)
 ======================================================= */
+
 a {
   color: var(--accent);
   text-decoration: none;
 }
 
-/* Content links underline on hover */
-main a:hover {
-  text-decoration: underline;
+/* Content links only */
+main a:not(.archive-title):not(.project-sidebar a) {
+  position: relative;
+}
+
+main a:not(.archive-title):not(.project-sidebar a)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+main a:not(.archive-title):not(.project-sidebar a):hover::after {
+  width: 100%;
 }
 /* =======================================================
    FOOTER
@@ -574,7 +590,7 @@ main a:hover {
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background: currentColor;
 }
 /* =============================
@@ -618,19 +634,8 @@ main a:hover {
   color: var(--text);
   text-decoration: none;
 }
-
-.archive-title:hover {
-  text-decoration: underline;
-}
-
 .archive-description {
   margin-top: 0.4rem;
   color: var(--muted);
   line-height: 1.6;
-}
-/* ===== Fix double underline in blog + projects ===== */
-.archive-title:hover,
-.project-item:hover,
-.blog-title:hover {
-  text-decoration: none !important;
 }
