@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">{{ site.title }}</a>
+      <a href="/" class="logo">Aryaveer Agarwal</a>
 
       <nav class="nav">
         <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -39,10 +39,10 @@
         </button>
 
         <div class="nav-links">
-          <a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a>
-          <a href="/projects/" {% if page.url contains  "/projects/" %}class="active"{% endif %}>Projects</a>
-          <a href="/blog/" {% if page.url contains  "/blog" %}class="active"{% endif %}>Blog</a>
-          <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
+          <a href="/about/" >About</a>
+          <a href="/projects/" >Projects</a>
+          <a href="/blog/" >Blog</a>
+          <a href="/contact/" >Contact</a>
         </div>
       </nav>
 
@@ -58,13 +58,56 @@
 
   <div class="page-wrapper">
     <main class="container">
-      {{ content }}
+      <h1 id="creating-engineering-and-making-life-easier">Creating, Engineering, and Making life easier</h1>
+
+<p>I design and document robotics systems with a focus on mechanical integration, control interaction, and iterative refinement.</p>
+
+<p>This site captures not just completed builds — but the reasoning behind them.</p>
+
+<hr />
+
+<h2 id="recent-posts">Recent Posts</h2>
+
+<div class="post-list">
+
+  <a href="/blog/why-i-document-my-engineering-work/" class="post-item">
+    <div class="post-meta">
+      <span class="post-date">
+        Feb 26, 2026
+      </span>
+    </div>
+    <div class="post-content">
+      <h3 class="post-title">Why I Document My Engineering Work</h3>
+      <p class="post-excerpt">
+        Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They...
+      </p>
+    </div>
+  </a>
+
+  <a href="/blog/first-log/" class="post-item">
+    <div class="post-meta">
+      <span class="post-date">
+        Feb 25, 2026
+      </span>
+    </div>
+    <div class="post-content">
+      <h3 class="post-title">First Engineering Log</h3>
+      <p class="post-excerpt">
+        This is the beginning of my documented engineering journey.
+
+
+      </p>
+    </div>
+  </a>
+
+</div>
+
     </main>
 
     <footer class="site-footer">
       <div class="container">
         Built deliberately. Updated frequently.<br>
-        © {{ site.time | date: "%Y" }} {{ site.title }}
+        © 2026 Aryaveer Agarwal
       </div>
     </footer>
   </div>

@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">{{ site.title }}</a>
+      <a href="/" class="logo">Aryaveer Agarwal</a>
 
       <nav class="nav">
         <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -39,10 +39,10 @@
         </button>
 
         <div class="nav-links">
-          <a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a>
-          <a href="/projects/" {% if page.url contains  "/projects/" %}class="active"{% endif %}>Projects</a>
-          <a href="/blog/" {% if page.url contains  "/blog" %}class="active"{% endif %}>Blog</a>
-          <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
+          <a href="/about/" >About</a>
+          <a href="/projects/" >Projects</a>
+          <a href="/blog/" >Blog</a>
+          <a href="/contact/" class="active">Contact</a>
         </div>
       </nav>
 
@@ -58,13 +58,30 @@
 
   <div class="page-wrapper">
     <main class="container">
-      {{ content }}
+      <h2 id="contact">Contact</h2>
+
+<p>For collaboration, robotics discussions, or project inquiries:</p>
+
+<p><a href="mailto:contact@aryaveeragarwal.com">contact@aryaveeragarwal.com</a></p>
+
+<hr />
+
+<p>I’m particularly interested in:</p>
+<ul>
+  <li>Robotics (FTC / FRC)</li>
+  <li>Embedded control experiments</li>
+  <li>Engineering challenges</li>
+  <li>Sustainability-driven builds</li>
+</ul>
+
+<p>If you’re building something interesting, I’d love to hear about it.</p>
+
     </main>
 
     <footer class="site-footer">
       <div class="container">
         Built deliberately. Updated frequently.<br>
-        © {{ site.time | date: "%Y" }} {{ site.title }}
+        © 2026 Aryaveer Agarwal
       </div>
     </footer>
   </div>

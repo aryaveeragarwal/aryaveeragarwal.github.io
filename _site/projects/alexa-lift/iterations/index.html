@@ -1,0 +1,189 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap">
+
+<script>
+  (function () {
+    const saved = localStorage.getItem("theme");
+    const isDark = saved === "dark";
+
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    // Set checkbox state immediately
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("themeToggle");
+      if (toggle) {
+        toggle.checked = isDark;
+      }
+    });
+  })();
+</script>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/theme.js" defer></script>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Aryaveer Agarwal</a>
+
+      <nav class="nav">
+        <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links">
+          <a href="/about/" >About</a>
+          <a href="/projects/" class="active">Projects</a>
+          <a href="/blog/" >Blog</a>
+          <a href="/contact/" >Contact</a>
+        </div>
+      </nav>
+
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider">
+          <span class="icon moon">☾</span>
+          <span class="icon sun">☀</span>
+        </span>
+      </label>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <main class="container">
+      <div class="project-layout">
+
+  <aside class="project-sidebar">
+    <div class="sidebar-inner">
+      <h3>Alexa-Based Elevator Interface</h3>
+      
+
+      
+      <ul>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/"
+               class="">
+              Overview
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/electronics/"
+               class="">
+              Electronics
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/software/"
+               class="">
+              Software
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/lessons/"
+               class="">
+              Lessons
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/iterations/"
+               class="active">
+              Iterations
+            </a>
+          </li>
+        
+      </ul>
+      
+      
+    </div>
+  </aside>
+
+  <div class="project-content">
+    <h2 id="iteration-1--esp8266--power-bank">Iteration 1 — ESP8266 + Power Bank</h2>
+
+<ul>
+  <li>ESP8266 module</li>
+  <li>Single channel relay</li>
+  <li>External USB power bank</li>
+  <li>Wire exiting enclosure</li>
+</ul>
+
+<p>Issues:</p>
+<ul>
+  <li>Visible wiring</li>
+  <li>Power bank charging dependency</li>
+  <li>Not installation-ready</li>
+</ul>
+
+<hr />
+
+<h2 id="iteration-2--esp32-c3-upgrade">Iteration 2 — ESP32-C3 Upgrade</h2>
+
+<ul>
+  <li>Migrated to ESP32-C3 SuperMini</li>
+  <li>Lower footprint</li>
+  <li>Better efficiency</li>
+</ul>
+
+<p>Improvements:</p>
+<ul>
+  <li>Smaller enclosure</li>
+  <li>Improved stability</li>
+</ul>
+
+<p>Still required external power bank.</p>
+
+<hr />
+
+<h2 id="iteration-3--integrated-power-solution">Iteration 3 — Integrated Power Solution</h2>
+
+<ul>
+  <li>Located unused 24V rail inside lift PSU</li>
+  <li>Added buck converter (24V → 5V USB)</li>
+  <li>Fully internalized power system</li>
+</ul>
+
+<p>Results:</p>
+<ul>
+  <li>Cleaner install</li>
+  <li>No charging dependency</li>
+  <li>Closer to production-grade integration</li>
+</ul>
+
+  </div>
+
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Built deliberately. Updated frequently.<br>
+        © 2026 Aryaveer Agarwal
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,31 +1,32 @@
 ---
-title: Alexa-Based Lift Mechanism
+title: Alexa-Based Elevator Interface
 layout: project
 sidebar: alexa-lift
+project_title: Alexa-Based Elevator Interface
 is_project_home: true
-project_title: Alexa-Based Lift Mechanism
+date: 2025-02-09
+description: Voice-controlled parallel elevator button interface using ESP32 and relay isolation.
 ---
 
 ## Overview
 
-This project explored voice-controlled actuation using Alexa integration and embedded motor control.
+This project integrates voice control with a standard elevator call button by electrically paralleling the button circuit.
 
-The goal was to create a small-scale lift mechanism triggered entirely by voice commands.
+Instead of mechanically pressing the button, the system uses a relay to momentarily short the button terminals, simulating a press.
 
----
+The system evolved from an external prototype to a fully integrated embedded installation powered directly from the lift’s 24V supply.
 
-## Why I Built This
+## Design Constraints
 
-I wanted to experiment with:
+- Unknown elevator control circuitry
+- Must not interfere with existing functionality
+- Must remain electrically isolated from microcontroller logic
+- Must be compact and installation-ready
+- Must avoid visible external power sources
 
-- Voice → Cloud → Microcontroller pipeline  
-- Real-time motor actuation  
-- Latency and reliability constraints  
-- Mechanical constraint design in small systems
+## Final System Architecture
 
----
-
-## Status
-
-Functional prototype complete.
-Future versions will focus on safety logic and Wi-Fi range.
+- ESP32-C3 SuperMini
+- Single-channel relay module
+- 24V → 5V buck converter
+- Parallel button shorting interface

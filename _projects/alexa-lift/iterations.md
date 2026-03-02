@@ -2,42 +2,44 @@
 title: Iterations
 layout: project
 sidebar: alexa-lift
-project_title: Alexa-Based Lift Mechanism
+project_title: Alexa-Based Elevator Interface
 ---
 
-## Version 1 — Proof of Concept
+## Iteration 1 — ESP8266 + Power Bank
 
-- Simple relay switching
-- Fixed motor runtime
-- No safety logic
+- ESP8266 module
+- Single channel relay
+- External USB power bank
+- Wire exiting enclosure
 
-Problem:
-Inconsistent stopping position.
-
----
-
-## Version 2 — Controlled Actuation
-
-- Added timing calibration
-- Reduced overshoot
-- Improved mechanical alignment
-
-Problem:
-Relay wear over time.
+Issues:
+- Visible wiring
+- Power bank charging dependency
+- Not installation-ready
 
 ---
 
-## Version 3 — Stability Improvements
+## Iteration 2 — ESP32-C3 Upgrade
 
-- Reinforced frame
-- Improved pulley alignment
-- Reduced vibration
+- Migrated to ESP32-C3 SuperMini
+- Lower footprint
+- Better efficiency
+
+Improvements:
+- Smaller enclosure
+- Improved stability
+
+Still required external power bank.
 
 ---
 
-## Future Version Goals
+## Iteration 3 — Integrated Power Solution
 
-- Replace relay with MOSFET
-- Add limit switches
-- Add feedback loop
-- Improve enclosure aesthetics
+- Located unused 24V rail inside lift PSU
+- Added buck converter (24V → 5V USB)
+- Fully internalized power system
+
+Results:
+- Cleaner install
+- No charging dependency
+- Closer to production-grade integration

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-02T16:38:21+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Aryaveer Agarwal</title><subtitle>Robotics, systems design, and engineering logs</subtitle><entry><title type="html">Why I Document My Engineering Work</title><link href="http://localhost:4000/blog/why-i-document-my-engineering-work/" rel="alternate" type="text/html" title="Why I Document My Engineering Work" /><published>2026-02-26T00:00:00+05:30</published><updated>2026-02-26T00:00:00+05:30</updated><id>http://localhost:4000/blog/why-i-document-my-engineering-work</id><content type="html" xml:base="http://localhost:4000/blog/why-i-document-my-engineering-work/"><![CDATA[<p>Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.</p>
+
+<p>Engineering is not just about what works. It’s about why it works — and why other approaches didn’t.</p>
+
+<p>In robotics, especially in FTC and FRC, constraints define everything. Weight limits. Space limitations. Time pressure. Manufacturing access. Reliability requirements. Strategy tradeoffs. Every design decision is a compromise between competing variables.</p>
+
+<p>What interests me most isn’t just building mechanisms — it’s understanding systems.</p>
+
+<p>How does mechanical design interact with control loops?<br />
+How does driver strategy influence subsystem architecture?<br />
+How do small inefficiencies compound over a full match cycle?</p>
+
+<p>This site exists to document that layer.</p>
+
+<p>Here, I’ll break down:</p>
+<ul>
+  <li>Design decisions and the tradeoffs behind them</li>
+  <li>Iterations that failed and why</li>
+  <li>Lessons learned under competition pressure</li>
+  <li>Experiments in embedded control and applied engineering</li>
+</ul>
+
+<p>Over time, I want this to reflect not just completed projects, but the evolution of my thinking.</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.]]></summary></entry><entry><title type="html">First Engineering Log</title><link href="http://localhost:4000/blog/first-log/" rel="alternate" type="text/html" title="First Engineering Log" /><published>2026-02-25T00:00:00+05:30</published><updated>2026-02-25T00:00:00+05:30</updated><id>http://localhost:4000/blog/first-log</id><content type="html" xml:base="http://localhost:4000/blog/first-log/"><![CDATA[<p>This is the beginning of my documented engineering journey.</p>
+
+<p>More soon.</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[This is the beginning of my documented engineering journey.]]></summary></entry></feed>

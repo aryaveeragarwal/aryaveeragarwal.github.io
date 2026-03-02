@@ -1,0 +1,188 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap">
+
+<script>
+  (function () {
+    const saved = localStorage.getItem("theme");
+    const isDark = saved === "dark";
+
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    // Set checkbox state immediately
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("themeToggle");
+      if (toggle) {
+        toggle.checked = isDark;
+      }
+    });
+  })();
+</script>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/theme.js" defer></script>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Aryaveer Agarwal</a>
+
+      <nav class="nav">
+        <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links">
+          <a href="/about/" >About</a>
+          <a href="/projects/" class="active">Projects</a>
+          <a href="/blog/" >Blog</a>
+          <a href="/contact/" >Contact</a>
+        </div>
+      </nav>
+
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider">
+          <span class="icon moon">☾</span>
+          <span class="icon sun">☀</span>
+        </span>
+      </label>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <main class="container">
+      <div class="project-layout">
+
+  <aside class="project-sidebar">
+    <div class="sidebar-inner">
+      <h3>Alexa-Based Elevator Interface</h3>
+      
+
+      
+      <ul>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/"
+               class="">
+              Overview
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/electronics/"
+               class="">
+              Electronics
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/software/"
+               class="">
+              Software
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/lessons/"
+               class="active">
+              Lessons
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/iterations/"
+               class="">
+              Iterations
+            </a>
+          </li>
+        
+      </ul>
+      
+      
+    </div>
+  </aside>
+
+  <div class="project-content">
+    <h2 id="1-prototypes-are-not-deployments">1. Prototypes Are Not Deployments</h2>
+
+<p>The first two versions worked technically but relied on a power bank and exposed wiring.</p>
+
+<p>This was acceptable for testing but not for long-term integration.</p>
+
+<p>Engineering maturity means moving from “it works” to “it belongs there.”</p>
+
+<hr />
+
+<h2 id="2-power-integration-matters-more-than-logic">2. Power Integration Matters More Than Logic</h2>
+
+<p>The control logic was simple.</p>
+
+<p>The real improvement came from integrating into the 24V lift supply using a buck converter.</p>
+
+<p>Power architecture often defines system quality more than firmware complexity.</p>
+
+<hr />
+
+<h2 id="3-isolation-is-critical-in-unknown-systems">3. Isolation Is Critical in Unknown Systems</h2>
+
+<p>The elevator control circuitry was not fully documented.</p>
+
+<p>Using a relay ensured electrical isolation between the microcontroller and the lift system.</p>
+
+<p>When working with external control systems, assume unknown risk and design conservatively.</p>
+
+<hr />
+
+<h2 id="4-iteration-quality--first-design">4. Iteration Quality &gt; First Design</h2>
+
+<p>The first version solved the problem.</p>
+
+<p>The third version solved it properly.</p>
+
+<p>The biggest improvement was not in features — it was in integration cleanliness.</p>
+
+<hr />
+
+<h2 id="5-future-improvements">5. Future Improvements</h2>
+
+<ul>
+  <li>Replace relay with solid-state switching</li>
+  <li>Add transient protection across terminals</li>
+  <li>Implement watchdog for fail-safe reset</li>
+  <li>Add local manual override switch</li>
+  <li>Improve enclosure finishing</li>
+</ul>
+
+  </div>
+
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Built deliberately. Updated frequently.<br>
+        © 2026 Aryaveer Agarwal
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

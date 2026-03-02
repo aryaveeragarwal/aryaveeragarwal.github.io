@@ -2,48 +2,33 @@
 title: Electronics
 layout: project
 sidebar: alexa-lift
-project_title: Alexa-Based Lift Mechanism
+project_title: Alexa-Based Elevator Interface
 ---
 
-## Overview
+## Button Interface Strategy
 
-The electronics system connects Alexa-triggered cloud commands to a physical motor driver.
+The elevator call button operates on a 24V control circuit.
 
-The core challenge was safely controlling a lift motor using a microcontroller without damaging components.
+Instead of modifying the control board, the relay was wired in parallel across the button terminals.
 
----
+When activated, the relay momentarily shorts the terminals, simulating a button press.
 
-## System Components
+This method ensures:
 
-- Microcontroller (ESP8266 / ESP32)
-- Relay or MOSFET driver
-- DC motor
-- External power supply
-- Flyback diode
+- No firmware-level integration with elevator controller
+- Electrical isolation via relay
+- Minimal intrusion into existing circuitry
 
----
+## Power Evolution
 
-## Control Flow
+### Iteration 1 & 2
+- Powered via USB power bank
+- External wiring visible
+- Prototyping stage
 
-1. Alexa skill triggers cloud event
-2. Event hits webhook / IoT endpoint
-3. Microcontroller receives command
-4. GPIO pin switches driver stage
-5. Motor actuates lift
+### Iteration 3
+- Identified unused 24V rail in lift power supply
+- Integrated DC-DC buck converter
+- Removed dependency on external battery
 
----
-
-## Safety Considerations
-
-- Never power motor directly from microcontroller
-- Always include flyback diode
-- Separate logic and motor grounds properly
-- Use current-rated wiring
-
----
-
-## Future Improvements
-
-- Replace relay with MOSFET driver
-- Add current monitoring
-- Add end-stop limit switches
+This significantly improved deployment cleanliness and reliability.                                                                                                                                      

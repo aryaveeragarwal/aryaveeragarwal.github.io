@@ -1,0 +1,165 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap">
+
+<script>
+  (function () {
+    const saved = localStorage.getItem("theme");
+    const isDark = saved === "dark";
+
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    // Set checkbox state immediately
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("themeToggle");
+      if (toggle) {
+        toggle.checked = isDark;
+      }
+    });
+  })();
+</script>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/theme.js" defer></script>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Aryaveer Agarwal</a>
+
+      <nav class="nav">
+        <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links">
+          <a href="/about/" >About</a>
+          <a href="/projects/" class="active">Projects</a>
+          <a href="/blog/" >Blog</a>
+          <a href="/contact/" >Contact</a>
+        </div>
+      </nav>
+
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider">
+          <span class="icon moon">☾</span>
+          <span class="icon sun">☀</span>
+        </span>
+      </label>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <main class="container">
+      <div class="project-layout">
+
+  <aside class="project-sidebar">
+    <div class="sidebar-inner">
+      <h3>Alexa-Based Elevator Interface</h3>
+      
+
+      
+      <ul>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/"
+               class="active">
+              Overview
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/electronics/"
+               class="">
+              Electronics
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/software/"
+               class="">
+              Software
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/lessons/"
+               class="">
+              Lessons
+            </a>
+          </li>
+        
+          
+          
+          <li>
+            <a href="/projects/alexa-lift/iterations/"
+               class="">
+              Iterations
+            </a>
+          </li>
+        
+      </ul>
+      
+      
+    </div>
+  </aside>
+
+  <div class="project-content">
+    <h2 id="overview">Overview</h2>
+
+<p>This project integrates voice control with a standard elevator call button by electrically paralleling the button circuit.</p>
+
+<p>Instead of mechanically pressing the button, the system uses a relay to momentarily short the button terminals, simulating a press.</p>
+
+<p>The system evolved from an external prototype to a fully integrated embedded installation powered directly from the lift’s 24V supply.</p>
+
+<h2 id="design-constraints">Design Constraints</h2>
+
+<ul>
+  <li>Unknown elevator control circuitry</li>
+  <li>Must not interfere with existing functionality</li>
+  <li>Must remain electrically isolated from microcontroller logic</li>
+  <li>Must be compact and installation-ready</li>
+  <li>Must avoid visible external power sources</li>
+</ul>
+
+<h2 id="final-system-architecture">Final System Architecture</h2>
+
+<ul>
+  <li>ESP32-C3 SuperMini</li>
+  <li>Single-channel relay module</li>
+  <li>24V → 5V buck converter</li>
+  <li>Parallel button shorting interface</li>
+</ul>
+
+  </div>
+
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Built deliberately. Updated frequently.<br>
+        © 2026 Aryaveer Agarwal
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

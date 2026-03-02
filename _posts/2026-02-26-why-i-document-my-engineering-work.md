@@ -1,7 +1,8 @@
 ---
-layout: post
-title: "Why I Document My Engineering Work"
+layout: default
+title: Why I Document My Engineering Work
 date: 2026-02-26
+categories: blog
 ---
 
 Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.

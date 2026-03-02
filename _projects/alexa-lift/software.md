@@ -1,49 +1,31 @@
 ---
-title: Software
+title: Electronics
 layout: project
 sidebar: alexa-lift
-project_title: Alexa-Based Lift Mechanism
+project_title: Alexa-Based Elevator Interface
 ---
 
-## Overview
+## Power Architecture Evolution
 
-The software connects voice commands to embedded motor control logic.
+### Iteration 1 & 2
+- Powered via USB power bank
+- External cable exposed
+- Portable but inelegant
 
-The focus was reliability and low-latency actuation.
+### Iteration 3
+- Located unused 24V output rail inside lift control supply
+- Added DC-DC buck converter (24V → 5V USB)
+- Eliminated external power bank
+- Cleaner installation
 
----
+## Switching Mechanism
 
-## Architecture
+All versions used a single-channel relay module to simulate a button press.
 
-- Alexa Skill (Voice Interface)
-- Cloud Function / IoT Endpoint
-- Embedded Firmware
-- GPIO Control Layer
+Design reasoning:
+- Galvanic isolation
+- Simple actuation logic
+- Low firmware complexity
 
----
-
-## Firmware Logic
-
-Pseudo flow:
-
-1. Wait for incoming command
-2. Validate command
-3. Activate motor for fixed duration
-4. Stop motor
-5. Return confirmation
-
----
-
-## Failure Handling
-
-- Timeout protection
-- Prevent double-trigger
-- Fail-safe motor stop
-
----
-
-## Lessons Learned
-
-- Cloud latency must be expected
-- Always debounce physical outputs
-- State tracking is critical for mechanical systems
+Future improvement:
+- Replace relay with optocoupler or MOSFET for longevity

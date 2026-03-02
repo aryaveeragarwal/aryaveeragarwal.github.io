@@ -1,11 +1,11 @@
 alexa-lift:
   - title: Overview
     url: /projects/alexa-lift/
-  - title: Mechanical Design
-    url: /projects/alexa-lift/design/
   - title: Electronics
     url: /projects/alexa-lift/electronics/
   - title: Software
     url: /projects/alexa-lift/software/
+  - title: Lessons
+    url: /projects/alexa-lift/lessons/
   - title: Iterations
     url: /projects/alexa-lift/iterations/

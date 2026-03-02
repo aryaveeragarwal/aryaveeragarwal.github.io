@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">{{ site.title }}</a>
+      <a href="/" class="logo">Aryaveer Agarwal</a>
 
       <nav class="nav">
         <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -39,10 +39,10 @@
         </button>
 
         <div class="nav-links">
-          <a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a>
-          <a href="/projects/" {% if page.url contains  "/projects/" %}class="active"{% endif %}>Projects</a>
-          <a href="/blog/" {% if page.url contains  "/blog" %}class="active"{% endif %}>Blog</a>
-          <a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a>
+          <a href="/about/" >About</a>
+          <a href="/projects/" >Projects</a>
+          <a href="/blog/" class="active">Blog</a>
+          <a href="/contact/" >Contact</a>
         </div>
       </nav>
 
@@ -58,13 +58,36 @@
 
   <div class="page-wrapper">
     <main class="container">
-      {{ content }}
+      <p>Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.</p>
+
+<p>Engineering is not just about what works. It’s about why it works — and why other approaches didn’t.</p>
+
+<p>In robotics, especially in FTC and FRC, constraints define everything. Weight limits. Space limitations. Time pressure. Manufacturing access. Reliability requirements. Strategy tradeoffs. Every design decision is a compromise between competing variables.</p>
+
+<p>What interests me most isn’t just building mechanisms — it’s understanding systems.</p>
+
+<p>How does mechanical design interact with control loops?<br />
+How does driver strategy influence subsystem architecture?<br />
+How do small inefficiencies compound over a full match cycle?</p>
+
+<p>This site exists to document that layer.</p>
+
+<p>Here, I’ll break down:</p>
+<ul>
+  <li>Design decisions and the tradeoffs behind them</li>
+  <li>Iterations that failed and why</li>
+  <li>Lessons learned under competition pressure</li>
+  <li>Experiments in embedded control and applied engineering</li>
+</ul>
+
+<p>Over time, I want this to reflect not just completed projects, but the evolution of my thinking.</p>
+
     </main>
 
     <footer class="site-footer">
       <div class="container">
         Built deliberately. Updated frequently.<br>
-        © {{ site.time | date: "%Y" }} {{ site.title }}
+        © 2026 Aryaveer Agarwal
       </div>
     </footer>
   </div>
