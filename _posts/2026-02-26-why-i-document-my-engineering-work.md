@@ -5,7 +5,7 @@ date: 2026-02-26
 categories: blog
 ---
 
-Most of my projects already exist online — on Instagram, YouTube, or FIRST competition logs. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.
+Most of my projects already exist online — on Instagram, YouTube, or on my FRC team's bot. But those platforms only show outcomes. They don’t capture the reasoning behind the builds.
 
 Engineering is not just about what works. It’s about why it works — and why other approaches didn’t.
 
