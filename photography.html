@@ -1,0 +1,133 @@
+---
+layout: null
+permalink: /photography/
+title: Photography
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Photography — Aryaveer Agarwal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+<style>
+  :root{
+    --bg: #0b0b0a;
+    --ink: #ece7dd;
+    --ink-dim: #8a8578;
+    --wire: #c23b2c;
+    --line: rgba(236,231,221,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+
+  header{ padding:5rem 6vw 3rem; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-size:11px; letter-spacing:.22em; color:var(--wire); margin:0 0 1.1rem; }
+  h1{ font-family:'Fraunces', serif; font-weight:400; font-size:clamp(2.2rem, 5vw, 4rem); line-height:1.05; margin:0 0 1.2rem; max-width:14ch; }
+  header p{ max-width:52ch; color:var(--ink-dim); font-size:13px; line-height:1.8; margin:0; }
+
+  .gallery{
+    column-count:3;
+    column-gap:2px;
+    padding:2px 6vw 8rem;
+  }
+  @media (max-width:900px){ .gallery{ column-count:2; } }
+  @media (max-width:560px){ .gallery{ column-count:1; } }
+
+  .gallery a{
+    display:block;
+    margin:0 0 2px;
+    break-inside:avoid;
+    position:relative;
+    overflow:hidden;
+    background:#141412;
+    cursor:pointer;
+  }
+  .gallery img{
+    display:block;
+    width:100%;
+    height:auto;
+    filter:grayscale(0.1) contrast(1.02);
+    transition:transform .4s ease, filter .4s ease;
+  }
+  .gallery a:hover img{
+    transform:scale(1.06);
+    filter:grayscale(0) contrast(1.05);
+  }
+  .gallery figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:14px 16px;
+    background:linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0));
+    font-size:10px; letter-spacing:.08em; color:var(--ink);
+    display:flex; justify-content:space-between; gap:12px;
+    opacity:0; transform:translateY(6px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .gallery a:hover figcaption{ opacity:1; transform:translateY(0); }
+  .gallery figcaption .idx{ color:var(--wire); }
+
+  footer{ padding:3rem 6vw 5rem; border-top:1px solid var(--line); color:var(--ink-dim); font-size:11px; letter-spacing:.08em; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">FIELD WORK &mdash; 2025&ndash;2026</p>
+  <h1>A record of what was in front of me.</h1>
+  <p>A handful of frames — grazing fields back home, a week in Sydney, and the moments caught in between. Assembled here for the CHIREC MUN IP Photojournalist application. Click any photo to view full-size.</p>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<footer>
+  © Aryaveer Agarwal
+</footer>
+
+<script>
+const REAL_IMAGES = [
+  {src:"/assets/photography/img_01.jpg", w:1800, h:2400, loc:"AERIAL — GRAZING FIELD 1", n:"01"},
+  {src:"/assets/photography/img_02.jpg", w:1800, h:2400, loc:"AERIAL — GRAZING FIELD 2", n:"02"},
+  {src:"/assets/photography/img_03.jpg", w:1800, h:2400, loc:"STORM LIGHT, TREELINE", n:"03"},
+  {src:"/assets/photography/img_04.jpg", w:1440, h:1920, loc:"SYDNEY HARBOUR BRIDGE", n:"04"},
+  {src:"/assets/photography/img_05.jpg", w:1440, h:1920, loc:"LUNA PARK, FERRIS WHEEL", n:"05"},
+  {src:"/assets/photography/img_06.jpg", w:1440, h:1920, loc:"LUNA PARK, HARBOUR VIEW", n:"06"},
+  {src:"/assets/photography/img_07.jpg", w:1800, h:1350, loc:"SYDNEY SKYLINE", n:"07"},
+  {src:"/assets/photography/img_08.jpg", w:1440, h:1920, loc:"DESCENT, RIVER VALLEY", n:"08"}
+];
+</script>
+
+<script>
+const gallery = document.getElementById('gallery');
+REAL_IMAGES.forEach(img => {
+  const a = document.createElement('a');
+  a.href = img.src;
+  a.setAttribute('data-pswp-width', img.w);
+  a.setAttribute('data-pswp-height', img.h);
+  a.target = '_blank';
+  a.innerHTML = `
+    <img src="${img.src}" loading="lazy" alt="${img.loc}">
+    <figcaption><span class="loc">${img.loc}</span><span class="idx">${img.n}</span></figcaption>
+  `;
+  gallery.appendChild(a);
+});
+</script>
+
+<script type="module">
+try {
+  const { default: PhotoSwipeLightbox } = await import('https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js');
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js'),
+  });
+  lightbox.init();
+} catch (err) {
+  console.warn('PhotoSwipe failed to load, falling back to plain links:', err);
+}
+</script>
+</body>
+</html>
