@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Why I Document My Engineering Work
 date: 2026-02-26
 categories: blog
