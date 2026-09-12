@@ -1,0 +1,802 @@
+---
+layout: null
+permalink: /locked/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Locked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #15171b;
+  --ink: #ece7dd;
+  --muted: #8d939c;
+  --rule: #272b33;
+  --accent: #8fb4c4;
+  --warn: #c98f8f;
+  --sans: "Space Grotesk", system-ui, sans-serif;
+  --serif: "Fraunces", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body { min-height: 100vh; }
+
+.shell {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+.gate {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.gate h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.6rem;
+}
+
+.gate p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 2.25rem;
+  max-width: 28rem;
+}
+
+.field { margin-bottom: 1rem; }
+
+.field label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 0.55rem 0;
+  border-radius: 0;
+}
+
+input:focus { outline: none; border-bottom-color: var(--accent); }
+input::placeholder { color: #4d535c; }
+
+button {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--ground);
+  background: var(--ink);
+  border: 0;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+}
+
+button:hover { background: #fff; }
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+button.quiet {
+  background: transparent;
+  color: var(--muted);
+  padding: 0.4rem 0;
+  font-size: 0.8rem;
+  border-bottom: 1px solid transparent;
+}
+
+button.quiet:hover {
+  background: transparent;
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+button[disabled] { opacity: 0.45; cursor: default; }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.note-line {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 1.75rem;
+}
+
+.bad { color: var(--warn); }
+
+.bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0 1.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.bar nav { display: flex; gap: 1.1rem; }
+
+.composer { position: relative; }
+
+textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  padding: 0 0 0.9rem;
+  resize: vertical;
+}
+
+textarea:focus { outline: none; border-bottom-color: var(--accent); }
+textarea::placeholder { color: #4d535c; font-family: var(--serif); }
+
+.composer-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  min-height: 2.4rem;
+}
+
+.status { flex: 1; line-height: 1.5; }
+.status.bad { color: var(--warn); }
+
+.search { margin: 2.5rem 0 0; }
+.search input { font-size: 0.85rem; }
+
+.day { margin-top: 2.75rem; }
+
+.day > h2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 4.25rem 1fr;
+  gap: 0 1.25rem;
+  padding: 0 0 1.9rem;
+  align-items: start;
+}
+
+.entry time {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.42rem;
+}
+
+.entry .body {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.68;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.entry .kill {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.entry:hover .kill,
+.entry:focus-within .kill { opacity: 1; }
+
+.empty {
+  margin-top: 3.5rem;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 34rem) {
+  .entry { grid-template-columns: 1fr; gap: 0.3rem; }
+  .entry time { padding-top: 0; }
+  .entry .kill { grid-column: 1; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<section class="gate" id="gate" hidden>
+  <h1>Locked</h1>
+  <p id="gateBlurb">Everything here is encrypted in the browser. The passphrase never leaves this page, and there is no way to recover it.</p>
+  <div class="field">
+    <label for="pass">Passphrase</label>
+    <input type="password" id="pass" autocomplete="current-password">
+  </div>
+  <div class="row">
+    <button id="unlockBtn">Unlock</button>
+    <span class="status" id="gateStatus"></span>
+  </div>
+</section>
+
+<section class="gate" id="setup" hidden>
+  <h1>Set this up</h1>
+  <p>No encrypted file exists yet. Pick a passphrase and give this page a token so it can write notes back to your repo. Both get stored inside the encrypted file, never in the clear.</p>
+  <div class="field">
+    <label for="sPass">Passphrase</label>
+    <input type="password" id="sPass" autocomplete="new-password">
+  </div>
+  <div class="field">
+    <label for="sPass2">Passphrase again</label>
+    <input type="password" id="sPass2" autocomplete="new-password">
+  </div>
+  <div class="field">
+    <label for="sRepo">Repository</label>
+    <input type="text" id="sRepo" placeholder="username/username.github.io" autocapitalize="off" autocorrect="off" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="sBranch">Branch</label>
+    <input type="text" id="sBranch" value="main" autocapitalize="off" autocorrect="off" spellcheck="false">
+  </div>
+  <div class="field">
+    <label for="sToken">GitHub token</label>
+    <input type="password" id="sToken" autocomplete="off">
+  </div>
+  <div class="row">
+    <button id="setupBtn">Create the file</button>
+    <span class="status" id="setupStatus"></span>
+  </div>
+  <p class="note-line">Make a fine-grained token scoped to this one repository, with Contents set to read and write. Nothing else.</p>
+</section>
+
+<main class="shell" id="app" hidden>
+  <div class="bar">
+    <span id="count"></span>
+    <nav>
+      <button class="quiet" id="exportBtn">Export</button>
+      <button class="quiet" id="lockBtn">Lock</button>
+    </nav>
+  </div>
+
+  <div class="composer">
+    <textarea id="draft" placeholder="Write a note." aria-label="New note"></textarea>
+    <div class="composer-foot">
+      <span class="status" id="status"></span>
+      <button id="saveBtn">Save note</button>
+    </div>
+  </div>
+
+  <div class="search">
+    <input type="text" id="search" placeholder="Search notes" aria-label="Search notes" autocomplete="off">
+  </div>
+
+  <div id="list"></div>
+</main>
+
+{% raw %}
+<script>
+(function () {
+  "use strict";
+
+  var NOTES_PATH = "notes.enc.json";
+  var NOTES_URL = "/" + NOTES_PATH;
+  var CACHE_KEY = "locked.cache.v1";
+  var ITER = 310000;
+  var IDLE_MS = 15 * 60 * 1000;
+
+  var enc = new TextEncoder();
+  var dec = new TextDecoder();
+
+  var key = null;
+  var data = null;
+  var dirty = false;
+  var idleTimer = null;
+  var remoteEnvelope = null;
+  var sealSalt = null;
+  var sealIter = ITER;
+
+  function $(id) { return document.getElementById(id); }
+
+  function toB64(buf) {
+    var bytes = new Uint8Array(buf), out = "", chunk = 0x8000;
+    for (var i = 0; i < bytes.length; i += chunk) {
+      out += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(out);
+  }
+
+  function fromB64(str) {
+    var bin = atob(str), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+
+  function deriveKey(pass, salt, iterations) {
+    return crypto.subtle.importKey("raw", enc.encode(pass), "PBKDF2", false, ["deriveKey"])
+      .then(function (base) {
+        return crypto.subtle.deriveKey(
+          { name: "PBKDF2", salt: salt, iterations: iterations, hash: "SHA-256" },
+          base,
+          { name: "AES-GCM", length: 256 },
+          false,
+          ["encrypt", "decrypt"]
+        );
+      });
+  }
+
+  function seal() {
+    var iv = crypto.getRandomValues(new Uint8Array(12));
+    return crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc.encode(JSON.stringify(data)))
+      .then(function (ct) {
+        return {
+          v: 1,
+          alg: "AES-GCM",
+          kdf: "PBKDF2-SHA256",
+          iter: sealIter,
+          salt: toB64(sealSalt),
+          iv: toB64(iv),
+          ct: toB64(ct)
+        };
+      });
+  }
+
+  function openEnvelope(envelope, pass) {
+    var salt = fromB64(envelope.salt);
+    var iterations = envelope.iter || ITER;
+    return deriveKey(pass, salt, iterations).then(function (k) {
+      return crypto.subtle.decrypt({ name: "AES-GCM", iv: fromB64(envelope.iv) }, k, fromB64(envelope.ct))
+        .then(function (plain) {
+          return { key: k, salt: salt, iter: iterations, data: JSON.parse(dec.decode(plain)) };
+        });
+    });
+  }
+
+  function fetchEnvelope() {
+    return fetch(NOTES_URL + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error("Could not load the encrypted file (" + r.status + ").");
+      return r.json();
+    });
+  }
+
+  function gh(path, options) {
+    var o = options || {};
+    var headers = {
+      "Accept": "application/vnd.github+json",
+      "Authorization": "Bearer " + data.token,
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+    if (o.headers) {
+      for (var h in o.headers) headers[h] = o.headers[h];
+    }
+    o.headers = headers;
+    return fetch("https://api.github.com" + path, o);
+  }
+
+  function ghError(r) {
+    return r.json().then(function (e) {
+      throw new Error(e.message || ("GitHub returned " + r.status + "."));
+    }, function () {
+      throw new Error("GitHub returned " + r.status + ".");
+    });
+  }
+
+  function currentSha() {
+    var q = "/repos/" + data.meta.repo + "/contents/" + data.meta.path +
+            "?ref=" + encodeURIComponent(data.meta.branch) + "&t=" + Date.now();
+    return gh(q, { cache: "no-store" }).then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) return ghError(r);
+      return r.json().then(function (j) { return j.sha; });
+    });
+  }
+
+  function cacheLocal(envelope) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(envelope)); } catch (e) {}
+  }
+
+  function push(message) {
+    return seal().then(function (envelope) {
+      cacheLocal(envelope);
+      var text = JSON.stringify(envelope);
+      return currentSha().then(function (sha) {
+        var body = {
+          message: message,
+          content: toB64(enc.encode(text)),
+          branch: data.meta.branch
+        };
+        if (sha) body.sha = sha;
+        return gh("/repos/" + data.meta.repo + "/contents/" + data.meta.path, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+      });
+    }).then(function (r) {
+      if (!r.ok) return ghError(r);
+      dirty = false;
+      return true;
+    });
+  }
+
+  function newNote(body) {
+    return {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random(),
+      ts: new Date().toISOString(),
+      body: body
+    };
+  }
+
+  function sortNotes() {
+    data.notes.sort(function (a, b) { return b.ts.localeCompare(a.ts); });
+  }
+
+  function mergeNotes(a, b) {
+    var seen = {}, out = [];
+    a.concat(b).forEach(function (n) {
+      if (!n || !n.id || seen[n.id]) return;
+      seen[n.id] = 1;
+      out.push(n);
+    });
+    return out;
+  }
+
+  var dayFmt = new Intl.DateTimeFormat(undefined, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  var timeFmt = new Intl.DateTimeFormat(undefined, { hour: "2-digit", minute: "2-digit", hour12: false });
+
+  function dayKey(d) { return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate(); }
+
+  function dayLabel(d) {
+    var today = new Date();
+    var yday = new Date();
+    yday.setDate(today.getDate() - 1);
+    if (dayKey(d) === dayKey(today)) return "Today, " + dayFmt.format(d);
+    if (dayKey(d) === dayKey(yday)) return "Yesterday, " + dayFmt.format(d);
+    return dayFmt.format(d);
+  }
+
+  function render() {
+    var q = $("search").value.trim().toLowerCase();
+    var notes = data.notes.filter(function (n) {
+      return !q || n.body.toLowerCase().indexOf(q) !== -1;
+    });
+
+    $("count").textContent = data.notes.length === 0
+      ? "No notes yet"
+      : q
+        ? notes.length + " of " + data.notes.length + " notes"
+        : data.notes.length + (data.notes.length === 1 ? " note" : " notes");
+
+    var list = $("list");
+    list.textContent = "";
+
+    if (notes.length === 0) {
+      var e = document.createElement("p");
+      e.className = "empty";
+      e.textContent = data.notes.length === 0
+        ? "Nothing here yet. Whatever you write goes in encrypted and comes back out only with your passphrase."
+        : "Nothing matches that.";
+      list.appendChild(e);
+      return;
+    }
+
+    var currentKey = null, section = null;
+
+    notes.forEach(function (n) {
+      var d = new Date(n.ts);
+      var k = dayKey(d);
+
+      if (k !== currentKey) {
+        currentKey = k;
+        section = document.createElement("section");
+        section.className = "day";
+        var h = document.createElement("h2");
+        h.textContent = dayLabel(d);
+        section.appendChild(h);
+        list.appendChild(section);
+      }
+
+      var entry = document.createElement("article");
+      entry.className = "entry";
+
+      var t = document.createElement("time");
+      t.dateTime = n.ts;
+      t.textContent = timeFmt.format(d);
+
+      var body = document.createElement("div");
+      body.className = "body";
+      body.textContent = n.body;
+
+      var kill = document.createElement("button");
+      kill.className = "quiet kill";
+      kill.type = "button";
+      kill.textContent = "Delete";
+      kill.addEventListener("click", function () { removeNote(n.id); });
+
+      entry.appendChild(t);
+      entry.appendChild(body);
+      entry.appendChild(kill);
+      section.appendChild(entry);
+    });
+  }
+
+  function setStatus(msg, bad) {
+    var s = $("status");
+    s.textContent = msg || "";
+    s.className = "status" + (bad ? " bad" : "");
+  }
+
+  function saveNote() {
+    var text = $("draft").value.trim();
+    if (!text) return;
+
+    data.notes.unshift(newNote(text));
+    sortNotes();
+    $("draft").value = "";
+    dirty = true;
+    render();
+    setStatus("Saving\u2026");
+    $("saveBtn").disabled = true;
+
+    push("Add note").then(function () {
+      setStatus("Saved. It reaches your other devices once the site rebuilds, about a minute.");
+    }).catch(function (err) {
+      setStatus("Not synced. " + err.message + " It is cached in this browser, and Export will give you a copy.", true);
+    }).then(function () {
+      $("saveBtn").disabled = false;
+    });
+  }
+
+  function removeNote(id) {
+    if (!confirm("Delete this note? It cannot be recovered.")) return;
+    data.notes = data.notes.filter(function (n) { return n.id !== id; });
+    dirty = true;
+    render();
+    setStatus("Deleting\u2026");
+    push("Delete note").then(function () {
+      setStatus("Deleted.");
+    }).catch(function (err) {
+      setStatus("Not synced. " + err.message, true);
+    });
+  }
+
+  function exportNotes() {
+    var copy = { exported: new Date().toISOString(), notes: data.notes };
+    var blob = new Blob([JSON.stringify(copy, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "notes-" + new Date().toISOString().slice(0, 10) + ".json";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+  }
+
+  function lock() {
+    key = null;
+    data = null;
+    sealSalt = null;
+    $("draft").value = "";
+    $("search").value = "";
+    $("list").textContent = "";
+    $("app").hidden = true;
+    $("pass").value = "";
+    $("gateStatus").textContent = "";
+    $("gateStatus").className = "status";
+    $("gate").hidden = false;
+    $("pass").focus();
+    clearTimeout(idleTimer);
+  }
+
+  function touchIdle() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      if (data && !dirty) lock();
+    }, IDLE_MS);
+  }
+
+  function unlock() {
+    var pass = $("pass").value;
+    if (!pass) return;
+
+    var s = $("gateStatus");
+    s.className = "status";
+    s.textContent = "Unlocking\u2026";
+    $("unlockBtn").disabled = true;
+
+    openEnvelope(remoteEnvelope, pass).then(function (res) {
+      key = res.key;
+      sealSalt = res.salt;
+      sealIter = res.iter;
+      data = res.data;
+      if (!Array.isArray(data.notes)) data.notes = [];
+
+      var cached = null;
+      try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null"); } catch (e) {}
+
+      var step = Promise.resolve(false);
+      if (cached && cached.ct && cached.ct !== remoteEnvelope.ct) {
+        step = openEnvelope(cached, pass).then(function (c) {
+          var before = data.notes.length;
+          data.notes = mergeNotes(data.notes, c.data.notes || []);
+          return data.notes.length > before;
+        }).catch(function () { return false; });
+      }
+
+      return step.then(function (recovered) {
+        sortNotes();
+        $("gate").hidden = true;
+        $("setup").hidden = true;
+        $("app").hidden = false;
+        render();
+        $("draft").focus();
+        touchIdle();
+
+        if (recovered) {
+          dirty = true;
+          setStatus("Found notes in this browser that never reached the repo. Syncing\u2026");
+          push("Recover unsynced notes").then(function () {
+            setStatus("Synced.");
+          }).catch(function (err) {
+            setStatus("Still not synced. " + err.message, true);
+          });
+        }
+      });
+    }).catch(function () {
+      s.className = "status bad";
+      s.textContent = "That passphrase does not open this file.";
+      $("pass").select();
+    }).then(function () {
+      $("unlockBtn").disabled = false;
+    });
+  }
+
+  function runSetup() {
+    var s = $("setupStatus");
+    s.className = "status";
+
+    var pass = $("sPass").value;
+    var pass2 = $("sPass2").value;
+    var repo = $("sRepo").value.trim().replace(/^https?:\/\/github\.com\//, "").replace(/\/+$/, "");
+    var branch = $("sBranch").value.trim() || "main";
+    var token = $("sToken").value.trim();
+
+    function fail(msg) { s.className = "status bad"; s.textContent = msg; }
+
+    if (pass.length < 10) return fail("Use at least 10 characters.");
+    if (pass !== pass2) return fail("The two passphrases do not match.");
+    if (!/^[^/\s]+\/[^/\s]+$/.test(repo)) return fail("Repository should look like username/reponame.");
+    if (!token) return fail("A token is needed to write the file.");
+
+    s.textContent = "Creating\u2026";
+    $("setupBtn").disabled = true;
+
+    var salt = crypto.getRandomValues(new Uint8Array(16));
+
+    deriveKey(pass, salt, ITER).then(function (k) {
+      key = k;
+      sealSalt = salt;
+      sealIter = ITER;
+      data = {
+        notes: [],
+        token: token,
+        meta: { repo: repo, branch: branch, path: NOTES_PATH }
+      };
+      return push("Create encrypted notes file");
+    }).then(function () {
+      $("setup").hidden = true;
+      $("app").hidden = false;
+      render();
+      setStatus("File created. Give GitHub Pages a minute to publish it.");
+      $("draft").focus();
+      touchIdle();
+    }).catch(function (err) {
+      key = null;
+      data = null;
+      fail(err.message);
+    }).then(function () {
+      $("setupBtn").disabled = false;
+    });
+  }
+
+  $("unlockBtn").addEventListener("click", unlock);
+  $("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") unlock(); });
+  $("setupBtn").addEventListener("click", runSetup);
+  $("saveBtn").addEventListener("click", saveNote);
+  $("lockBtn").addEventListener("click", lock);
+  $("exportBtn").addEventListener("click", exportNotes);
+  $("search").addEventListener("input", render);
+  $("draft").addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") { e.preventDefault(); saveNote(); }
+  });
+
+  ["keydown", "pointerdown"].forEach(function (evt) {
+    document.addEventListener(evt, function () { if (data) touchIdle(); }, { passive: true });
+  });
+
+  window.addEventListener("beforeunload", function (e) {
+    if (dirty) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  if (!window.crypto || !crypto.subtle) {
+    document.body.innerHTML =
+      '<section class="gate"><h1>No crypto here</h1>' +
+      '<p>This page needs the Web Crypto API, which browsers only expose over HTTPS. Open the site at its https address.</p></section>';
+    return;
+  }
+
+  fetchEnvelope().then(function (envelope) {
+    if (!envelope) {
+      $("setup").hidden = false;
+      $("sPass").focus();
+      return;
+    }
+    remoteEnvelope = envelope;
+    $("gate").hidden = false;
+    $("pass").focus();
+  }).catch(function (err) {
+    $("gate").hidden = false;
+    $("gateBlurb").textContent = err.message;
+    $("gateBlurb").className = "bad";
+  });
+})();
+</script>
+{% endraw %}
+</body>
+</html>
